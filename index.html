@@ -1,55 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Indroda Trip Proposal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science City Outing Proposal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    padding:15px 50px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    animation:fadeDown 1.5s ease;
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:#94a3b8;
+}
+
+.btn{
+    margin-top:25px;
+    padding:12px 30px;
+    background:#38bdf8;
+    border:none;
+    border-radius:30px;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    background:white;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 80px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:40px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:#334155;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#0f172a;
+    color:#64748b;
+}
+
+/* ANIMATION */
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>🌿 Indroda Nature Park Trip Proposal</h1>
-    <h2>Gyan Mandir, Adalaj</h2>
+<nav>
+    <h3>Outing Proposal</h3>
+    <div>
+        <a href="#about">About</a>
+        <a href="#budget">Budget</a>
+        <a href="#objectives">Objectives</a>
+    </div>
+</nav>
 
-    <section>
-        <h3>👥 Participants</h3>
-        <p>55 Students + 5 Staff</p>
-        <p>Budget: ₹150 per student</p>
-        <p>Total Budget: ₹8,250</p>
-    </section>
-
-    <section>
-        <h3>🚍 Transportation</h3>
-        <ul>
-            <li>1 Bus (60 Seater)</li>
-            <li>Bus Cost: ₹3,500–₹4,000</li>
-            <li>Per Student: ₹70</li>
-            <li>Distance: 12 km (One Side)</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>⏰ Game Plan</h3>
-        <ul>
-            <li>Kho-Kho</li>
-            <li>Tug of War</li>
-            <li>Treasure Hunt</li>
-            <li>Freeze Dance</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>🛡 Safety Rules</h3>
-        <ul>
-            <li>Stay in group</li>
-            <li>Follow teacher instructions</li>
-            <li>First aid available</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>Project by Aniket | School Competition Level</p>
-    </footer>
+<div class="hero">
+    <h1>Educational Visit to Science City</h1>
+    <p>Distance: 34.5 KM from Gnanmandir</p>
+    <a href="#budget"><button class="btn">View Budget</button></a>
 </div>
+
+<section id="about">
+    <h2 class="section-title">About the Trip</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Destination</h3>
+            <p>Gujarat Science City, Ahmedabad</p>
+        </div>
+        <div class="card">
+            <h3>Travel</h3>
+            <p>Bus Fare (Return): ₹25</p>
+        </div>
+        <div class="card">
+            <h3>Distance</h3>
+            <p>34.5 KM</p>
+        </div>
+    </div>
+</section>
+
+<section id="budget">
+    <h2 class="section-title">Budget Per Student</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Entry</h3>
+            <p>₹20</p>
+        </div>
+        <div class="card">
+            <h3>Aquatic Gallery</h3>
+            <p>₹50</p>
+        </div>
+        <div class="card">
+            <h3>Food</h3>
+            <p>₹55</p>
+        </div>
+        <div class="card">
+            <h3>Total</h3>
+            <p><strong>₹150</strong></p>
+        </div>
+    </div>
+</section>
+
+<section id="objectives">
+    <h2 class="section-title">Objectives</h2>
+    <div class="cards">
+        <div class="card">
+            <p>Enhance scientific knowledge</p>
+        </div>
+        <div class="card">
+            <p>Explore aquatic biodiversity</p>
+        </div>
+        <div class="card">
+            <p>Interactive science learning</p>
+        </div>
+        <div class="card">
+            <p>Encourage innovation</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Science City Outing Proposal | Made by You
+</footer>
 
 </body>
 </html>

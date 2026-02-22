@@ -3,194 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science City Ultra Proposal</title>
+<title>LTM Legendary Outing Proposal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
-body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
-overflow-x:hidden;
-}
-
-/* NAV */
-nav{
-position:fixed;
-width:100%;
-padding:20px 60px;
-display:flex;
-justify-content:space-between;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-z-index:1000;
-}
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:0.3s;
-}
-nav a:hover{color:#00f5ff;}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(to right,#141e30,#243b55);
-}
-.hero h1{
-font-size:3.5rem;
-background:linear-gradient(to right,#00f5ff,#00ff95);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:fadeUp 1.5s ease;
-}
-.hero p{margin-top:20px;color:#ccc;}
-.btn{
-margin-top:30px;
-padding:14px 35px;
-border:none;
-border-radius:30px;
-background:linear-gradient(to right,#00f5ff,#00ff95);
-color:black;
-font-weight:bold;
-cursor:pointer;
-transition:0.4s;
-}
-.btn:hover{transform:scale(1.1);}
-
-/* SECTIONS */
-section{padding:120px 80px;}
-.section-title{text-align:center;font-size:2.5rem;margin-bottom:60px;}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.07);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-transition:0.6s;
-transform:translateY(60px);
-opacity:0;
-}
-.card.show{
-transform:translateY(0);
-opacity:1;
-}
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-background:rgba(255,255,255,0.15);
-}
-
-/* SCHEDULE */
-.timeline{
-border-left:3px solid #00f5ff;
-padding-left:30px;
-}
-.timeline div{
-margin-bottom:30px;
-opacity:0;
-transform:translateX(-50px);
-transition:0.6s;
-}
-.timeline div.show{
-opacity:1;
-transform:translateX(0);
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:30px;
-background:rgba(0,0,0,0.4);
-color:#aaa;
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<nav>
-<h2>Science City Visit</h2>
+<div id="particles"></div>
+
+<header>
+<h1>LTM Legendary Trip Planner</h1>
 <div>
-<a href="#about">About</a>
-<a href="#budget">Budget</a>
-<a href="#schedule">Schedule</a>
+<button onclick="toggleTheme()">Theme</button>
+<button onclick="startPresentation()">Slide Mode</button>
 </div>
-</nav>
+</header>
 
-<div class="hero">
-<h1>Educational Outing Proposal</h1>
-<p>34.5 KM from Gnanmandir | Total ₹150 Per Student</p>
-<a href="#budget"><button class="btn">View Details</button></a>
-</div>
-
-<section id="about">
-<h2 class="section-title">Trip Overview</h2>
-<div class="cards">
-<div class="card">Destination: Gujarat Science City</div>
-<div class="card">Travel: Bus (Return ₹25)</div>
-<div class="card">Distance: 34.5 KM</div>
-</div>
+<section class="hero">
+<h2>Smart Budget. Smart Decision.</h2>
+<p>55 Students | Budget Limit ₹150</p>
 </section>
 
-<section id="budget">
-<h2 class="section-title">Budget Breakdown</h2>
-<div class="cards">
-<div class="card">Entry Ticket ₹20</div>
-<div class="card">Aquatic Gallery ₹50</div>
-<div class="card">Food:<br>3 Dabeli (₹15 each = ₹45)<br>Chaas ₹10<br><strong>Total Food ₹55</strong></div>
-<div class="card"><strong>Total Trip Cost ₹150</strong></div>
-</div>
+<section class="selector">
+<button onclick="loadProposal('zoo')">Zoo</button>
+<button onclick="loadProposal('indroda')">Indroda</button>
+<button onclick="loadProposal('science')">Science City</button>
 </section>
 
-<section id="schedule">
-<h2 class="section-title">Trip Schedule</h2>
-<div class="timeline">
-<div>08:00 AM – Departure from Gnanmandir</div>
-<div>09:00 AM – Arrival at Science City</div>
-<div>09:30 AM – Explore Exhibits</div>
-<div>12:30 PM – Aquatic Gallery Visit</div>
-<div>01:30 PM – Lunch (Dabeli & Chaas)</div>
-<div>03:00 PM – Free Exploration & Photos</div>
-<div>04:00 PM – Departure</div>
-<div>05:00 PM – Return to School</div>
-</div>
+<section class="card">
+<h3 id="title">Select Plan</h3>
+<div id="details"></div>
+<h2 id="total"></h2>
+<h4 id="status"></h4>
+</section>
+
+<section class="chart-section">
+<canvas id="budgetChart"></canvas>
 </section>
 
 <footer>
-© 2026 Science City Outing | Designed Ultra Pro
+LTM Innovation Team | Legendary Presentation Mode
 </footer>
 
-<script>
-const reveal = document.querySelectorAll('.card, .timeline div');
-
-window.addEventListener('scroll',()=>{
-const trigger = window.innerHeight * 0.85;
-reveal.forEach(el=>{
-if(el.getBoundingClientRect().top < trigger){
-el.classList.add('show');
-}
-});
-});
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>
